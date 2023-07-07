@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+
+.buttonbg{
+    background: #642B73;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.addCloseImage{
+    width: 30px;
+}
+
+
+
+
+@media screen and (max-width: 540px) {
+    .add{
+        margin-left: 47px;
+
+        /* margin-top: -32px; */
+        
+        
+    }
+
+    .analysisSpanPadding{
+        padding-left: 4%;
+    }
+    .span{
+      padding-left: 70%
+    }
+  }
+
+  .add{
+    text-decoration: none;
+    font-weight: bolder;
+    color: black;
+  }
+
+
+
+.listIcon{
+  width: 20px;
+}
+
+@media screen and (min-width: 540px) {
+  .span{
+    padding-left: 90%
+  }
+
+  .analysisSpanPadding{
+    padding-left: 28%;
+}
+
+  .divwidth{
+
+    width: 69%;
+  }
+}
+

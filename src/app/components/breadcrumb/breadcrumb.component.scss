@@ -1,0 +1,33 @@
+ul {
+    & {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  
+    li {
+      & {
+        display: inline;
+      }
+  
+      &:before {
+        content: ">";
+        margin: 0 6px;
+      }
+  
+      &:first-child:before {
+        content: "";
+        margin: 0;
+      }
+    }
+  }
+
+  .image{
+    margin-top: -2px;
+    width: 18px;
+  }
+
+  a:hover{
+    cursor: pointer;
+  }
+  
