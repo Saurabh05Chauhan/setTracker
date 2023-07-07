@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig :{
-    apiKey: "AIzaSyAm6RL2E5wSt0drLJ-a_o0ORlOtSdKkJXs",
-  authDomain: "settrackerapp-b0b97.firebaseapp.com",
-  projectId: "settrackerapp-b0b97",
-  storageBucket: "settrackerapp-b0b97.appspot.com",
-  messagingSenderId: "995817019071",
-  appId: "1:995817019071:web:eafdcb370875cdcdff980a",
-  measurementId: "G-YL8J501H27"
+    apiKey: "AIzaSyCJ3jih9ShiIDWS95RKra05pHxlGpdj8mc",
+  authDomain: "settracker-f393c.firebaseapp.com",
+  projectId: "settracker-f393c",
+  storageBucket: "settracker-f393c.appspot.com",
+  messagingSenderId: "454014096624",
+  appId: "1:454014096624:web:a862a55f29a3cd67b7de35",
+  measurementId: "G-EZZ7XF9RW9"
   }
 };
 
