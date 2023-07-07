@@ -32,7 +32,7 @@ export class BreadcrumbService {
   }
 
   private addBreadcrumb(route: any, parentUrl: string[], breadcrumbs: Breadcrumb[]) {
-    debugger
+    
     if (route) {
       // Construct the route URL
       const routeUrl = parentUrl.concat(route.url.map(((url:any) => url.path)));

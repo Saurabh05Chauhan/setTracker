@@ -11,7 +11,7 @@ import { SetTrackerService } from 'src/app/Services/set-tracker.service';
 })
 export class HomeComponent implements OnInit {
   folderNameForm: FormGroup;
- folder:any
+ folder:any[]=[]
   constructor(private fb:FormBuilder, private service:SetTrackerService,private globalService:GlobalService,private router : Router) { 
     this.folderNameForm = this.fb.group({  
       foldername:[''], 
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   addNotClicked:boolean=true;
   ngOnInit(): void {
     this.service.GetFolder().valueChanges().subscribe((res:any)=>{
-      debugger
+      
 if(res.length>0){
 this.folder=res;
 }
@@ -29,7 +29,7 @@ this.folder=res;
   }
 
   onSubmit(){
-    debugger
+    
     this.folder.push(this.folderNameForm.value)
     console.log(this.folderNameForm.value)
   }

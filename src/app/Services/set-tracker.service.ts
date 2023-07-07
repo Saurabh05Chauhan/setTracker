@@ -26,7 +26,7 @@ export class SetTrackerService {
 
   AddExercise(ex:string){
     this.afs.collection('Exercise',ref=>ref.where('ex','==',ex)).get().subscribe(res=>{
-      debugger
+      
       if(res.docs.length<=0){
         
         this.afs.collection('/Exercise').add({ex})
@@ -38,7 +38,7 @@ export class SetTrackerService {
     return this.afs.collection('/Exercise');
   }
   AddExerciseData(data:any){
-    debugger
+    
     var folder=this.globalService.Folder;
     this.AddFolder(folder);
     var exercise=this.globalService.Exercise;
@@ -68,7 +68,7 @@ export class SetTrackerService {
   }
 
   GetExerciseData():AngularFirestoreCollection<any>{
-    debugger
+    
     var folder=this.globalService.Folder;
     var exercise=this.globalService.Exercise;
     return this.afs.collection('/mySetTrackerData').doc(folder).collection(exercise);

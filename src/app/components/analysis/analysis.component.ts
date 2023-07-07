@@ -48,10 +48,10 @@ export class AnalysisComponent implements OnInit {
 
 
   public structureData(){
-    debugger
+    
     var currentDateTime =this.datepipe.transform((new Date), 'MM-dd-yyyy')?.toString();
     this.recordData.forEach((element:any) => {
-      debugger
+      
       if(element.date==currentDateTime){
          this.Todaydata.push(element);
          this.Todaydata.sort(sortByProperty('time', 'desc'))
@@ -88,7 +88,7 @@ this.EarlierData.sort(sortByProperty('date', 'desc'))
   }
 
   onSubmit(){
-    debugger
+    
     var currentDateTime =this.datepipe.transform((new Date), 'MM-dd-yyyy_h:mm:ss')?.toString();
     // this.RecordForm.controls['date'].patchValue(currentDateTime);
     this.RecordForm.controls['time'].patchValue(this.datepipe.transform((new Date), 'h:mm:ss')?.toString())
@@ -103,7 +103,7 @@ this.clearForm()
   }
 
   onEditSubmit(){
-    debugger
+    
     this.sTservice.EditExerciseData(this.RecordForm.value);
     
   }

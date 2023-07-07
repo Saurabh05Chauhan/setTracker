@@ -10,7 +10,13 @@ import { SetTrackerService } from 'src/app/Services/set-tracker.service';
   styleUrls: ['./excersises.component.css']
 })
 export class ExcersisesComponent implements OnInit {
-excerise: any;
+onEditClick(_t38: any) {
+throw new Error('Method not implemented.');
+}
+onDeleteClick(_t38: any) {
+throw new Error('Method not implemented.');
+}
+excerise: any[]=[];
 
 
 
