@@ -24,25 +24,31 @@ export class SetTrackerService {
     return this.afs.collection('/Folder');
   }
 
-  AddExercise(ex:string){
+  AddExercise(foldername:string,ex:string){
     this.afs.collection('Exercise',ref=>ref.where('ex','==',ex)).get().subscribe(res=>{
       
       if(res.docs.length<=0){
         
-        this.afs.collection('/Exercise').add({ex})
+        this.afs.collection('/Exercise').doc(foldername).collection(foldername+'Excercises').add({ex}).catch((err)=>{
+          alert(err.message)
+        });
       }
     })
   }
 
   GetExercise(){
-    return this.afs.collection('/Exercise');
+    
+    var folder=this.globalService.Folder;
+    return this.afs.collection('/Exercise').doc(folder).collection(folder+'Excercises');
   }
   AddExerciseData(data:any){
     
     var folder=this.globalService.Folder;
-    this.AddFolder(folder);
     var exercise=this.globalService.Exercise;
-    this.AddExercise(exercise);
+    this.AddFolder(folder);
+
+    this.AddExercise(folder,exercise);
+
     data.id=this.afs.createId();
     return this.afs.collection('mySetTrackerData').doc('/'+folder).collection("/"+exercise).doc(data.id).set(data).catch((err)=>{
       alert(err.message)

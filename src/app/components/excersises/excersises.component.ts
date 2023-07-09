@@ -32,6 +32,7 @@ excerise: any[]=[];
   ngOnInit(): void {
 this.service.GetExercise().valueChanges().subscribe((res:any)=>{
   if(res.length>0){
+    
     this.excerise=res;
   }
 })
