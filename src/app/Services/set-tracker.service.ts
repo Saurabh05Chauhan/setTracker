@@ -25,7 +25,7 @@ export class SetTrackerService {
   }
 
   AddExercise(foldername:string,ex:string){
-    this.afs.collection('Exercise',ref=>ref.where('ex','==',ex)).get().subscribe(res=>{
+    this.afs.collection('Exercise/'+foldername+'/'+foldername+'Excercises',ref=>ref.where('ex','==',ex)).get().subscribe(res=>{
       
       if(res.docs.length<=0){
         

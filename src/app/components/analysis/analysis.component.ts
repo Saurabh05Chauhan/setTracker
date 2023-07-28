@@ -61,8 +61,7 @@ export class AnalysisComponent implements OnInit {
 this.EarlierData.push(element)
 this.EarlierData.sort(sortByProperty('date', 'desc'))
       }
-      console.log(this.Todaydata);
-      console.log(this.EarlierData);
+      
     });
   }
 

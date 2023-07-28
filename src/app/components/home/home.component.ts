@@ -31,7 +31,6 @@ this.folder=res;
   onSubmit(){
     
     this.folder.push(this.folderNameForm.value)
-    console.log(this.folderNameForm.value)
   }
 
 addClicked(){

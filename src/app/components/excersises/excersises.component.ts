@@ -43,7 +43,6 @@ this.service.GetExercise().valueChanges().subscribe((res:any)=>{
 
   onSubmit(){
     this.excerise.push(this.exerciseForm.value)
-    console.log(this.exerciseForm.value)
   }
 
   onExerciseNameClicked(exName: string) {
