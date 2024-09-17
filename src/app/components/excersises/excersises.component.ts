@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { GlobalService } from 'src/app/Services/global.service';
 import { SetTrackerService } from 'src/app/Services/set-tracker.service';
@@ -22,8 +22,8 @@ excerise: any[]=[];
 
 
   addNotClicked: boolean=true;
- exerciseForm:FormGroup;
-  constructor(private fb:FormBuilder,private service:SetTrackerService,public globalService:GlobalService,private router:Router) { 
+ exerciseForm:UntypedFormGroup;
+  constructor(private fb:UntypedFormBuilder,private service:SetTrackerService,public globalService:GlobalService,private router:Router) { 
     this.exerciseForm = this.fb.group({  
       ex:[''], 
    });

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/Services/global.service';
 import { SetTrackerService } from 'src/app/Services/set-tracker.service';
@@ -10,9 +10,9 @@ import { SetTrackerService } from 'src/app/Services/set-tracker.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  folderNameForm: FormGroup;
+  folderNameForm: UntypedFormGroup;
  folder:any[]=[]
-  constructor(private fb:FormBuilder, private service:SetTrackerService,private globalService:GlobalService,private router : Router) { 
+  constructor(private fb:UntypedFormBuilder, private service:SetTrackerService,private globalService:GlobalService,private router : Router) { 
     this.folderNameForm = this.fb.group({  
       foldername:[''], 
    });

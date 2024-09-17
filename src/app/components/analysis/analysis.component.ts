@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { time } from 'console';
 import { sortByProperty } from 'sort-by-property';
 import { GlobalService } from 'src/app/Services/global.service';
@@ -13,11 +13,11 @@ import { SetTrackerService } from 'src/app/Services/set-tracker.service';
 })
 export class AnalysisComponent implements OnInit {
   addNotClicked: boolean=true;
- RecordForm: FormGroup;
+ RecordForm: UntypedFormGroup;
  recordData:any;
  Todaydata:any[]=[];
  EarlierData:any[]=[];
-  constructor(private fb:FormBuilder,public globalService:GlobalService,private sTservice:SetTrackerService,public datepipe: DatePipe) {
+  constructor(private fb:UntypedFormBuilder,public globalService:GlobalService,private sTservice:SetTrackerService,public datepipe: DatePipe) {
     this.RecordForm = this.fb.group({ 
       id:[''], 
       Weight: [''], 
