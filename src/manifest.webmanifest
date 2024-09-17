@@ -1,7 +1,7 @@
 {
   "name": "SetTrackerApp",
   "short_name": "SetTrackerApp",
-  "theme_color": "#1976d2",
+  "theme_color": "#ab3c70",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
