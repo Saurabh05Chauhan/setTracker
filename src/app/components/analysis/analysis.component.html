@@ -3,14 +3,14 @@
         <div class="col-8">
             <H5>Add Record for {{this.globalService.Exercise}}</H5>
         </div>
-        <div *ngIf="addNotClicked" class="col"><a class="add" data-bs-toggle="collapse" href="#collapseExample"
+        <div *ngIf="addNotClicked" class="col"><a class="add" data-bs-toggle="collapse"  data-bs-target="#collapseExample"
                 role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
                 <img class="addCloseImage" src="../../assets/plus.png">
             </a></div>
-        <div *ngIf="!addNotClicked" class="col"><a class="add" data-bs-toggle="collapse" href="#collapseExample"
+        <div *ngIf="!addNotClicked" class="col"><a class="add" data-bs-toggle="collapse"  data-bs-target="#collapseExample"
                 role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
                 <img class="addCloseImage" src="../../../assets/remove.png">
-            </a></div>
+            </a></div> 
     </div>
     <div class="collapse divwidth" id="collapseExample">
         <div class="card card-body">
@@ -119,7 +119,7 @@
                                         <span style="color: greenyellow;">{{x.Reps}} rep</span>
                                     </div>
                                     <div class="col">
-                                        <span><a (click)="onEditClick(x)"><img class="listIcon" src="../../../assets/pen.png"></a> | <a (click)="onDeleteClick(x)"><img
+                                        <span><a data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEditClick(x)"><img class="listIcon" src="../../../assets/pen.png"></a> | <a (click)="onDeleteClick(x)"><img
                                                 class="listIcon" src="../../../assets/delete.png"></a></span>
                                     </div>
                                 </div>

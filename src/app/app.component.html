@@ -1,17 +1,38 @@
-<nav class="navbar bg-body-tertiary navbg">
+<nav class="navbar bg-body-tertiary navbg navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/">
       <img src="../assets/logo-no-background.png" style="width: 156px;" alt="set tracker logo">
     </a>
-    <a routerLink="/"><img src="../assets/house-solid.svg" alt="home" style="width: 28px;"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/" style="color: white;"><img class="listIcon invert" src="../assets/house.svg" alt="home"> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="cursor: pointer;color: white;" data-bs-toggle="modal" data-bs-target="#calenderModal">
+            <img class="listIcon invert" src="../../../assets/calendar.svg"> History
+          </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="openai-analysis" style="color: white;"><img class="listIcon invert" src="../assets/openai.svg" alt="AI"> AI Analysis</a>
+        </li>
+      </ul>
+    </div>
+    
+    
     <!-- <span >
       <img src="../assets/house-solid.svg" alt="home">
     </span> -->
   </div>
   <!-- <i class="fa-solid fa-house" style="color: #1e3a71;"></i> -->
 </nav>
+
 <app-breadcrumb></app-breadcrumb>
 <router-outlet></router-outlet>
+<app-calender></app-calender> 
 <!-- <nav class="navbar sticky-bottom bg-body-tertiary navbg" style="height: 17px;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Sticky bottom</a>

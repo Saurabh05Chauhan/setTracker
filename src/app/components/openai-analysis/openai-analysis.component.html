@@ -1,0 +1,37 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-sm-2">
+            <label for="recipient-name" class="col-form-label">Select Muscle Group</label>
+        </div>
+        <div class="col-sm-4">
+
+
+            <select id="exerciseSelect" (change)="handleFolderChange($event)">
+                <option value="">-- Choose an option --</option>
+                <option value="{{folder.foldername}}" *ngFor="let folder of folders">{{folder.foldername}}</option>
+                <!-- <option value="squat">Squat</option>
+      <option value="deadlift">Deadlift</option>
+      <option value="pullups">Pull-ups</option> -->
+            </select>
+
+        </div>
+        <div class="col-sm-2 ">
+            <label for="recipient-name" class="col-form-label">Select Exercise</label>
+        </div>
+        <div class="col-sm-4 ">
+            <div class="dropdown">
+                <select id="exerciseSelect" (change)="handleExerciseChange($event)">
+                    <option value="">-- Choose an exercise --</option>
+                    <option value="{{ex.ex}}" *ngFor="let ex of exercises">{{ex.ex}}</option>
+                </select>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-sm-2 ">
+            <button type="button" class="btn btn-light" (click)="onbtnAnalyzeClick()">Track Progress</button>
+        </div>
+    </div>
+</div>

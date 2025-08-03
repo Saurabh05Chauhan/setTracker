@@ -4,56 +4,72 @@
             <H5>Add exercise for {{this.globalService.Folder}}</H5>
         </div>
         <div *ngIf="addNotClicked" class="col"><a class="add" data-bs-toggle="collapse" href="#collapseExample"
-            role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
-            <img  class="addCloseImage"src="../../assets/plus.png">
-        </a></div>
-    <div *ngIf="!addNotClicked" class="col"><a class="add" data-bs-toggle="collapse" href="#collapseExample"
-            role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
-            <img class="addCloseImage" src="../../../assets/remove.png">
-        </a></div>
+                role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
+                <img class="addCloseImage" src="../../assets/plus.png">
+            </a></div>
+        <div *ngIf="!addNotClicked" class="col"><a class="add" data-bs-toggle="collapse" href="#collapseExample"
+                role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
+                <img class="addCloseImage" src="../../../assets/remove.png">
+            </a></div>
     </div>
     <div class="collapse divwidth" id="collapseExample">
-        <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()" >
-        <div class="card card-body">
-            <div class="mb-3">
-                <div class="row">
-                    <label for="recipient-name" class="col-form-label" style="font-size: small;">Name</label>
-                </div>
-                <div class="row">
-                    <div class="col-8">
-                        <input type="text" class="form-control" id="folder-name" formControlName="ex"
-                            placeholder="Enter exercise name"> 
+        <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()">
+            <div class="text-danger mt-1" *ngIf="error">Please enter correct data.</div>
+            <div class="card card-body">
+                <div class="mb-3">
+                    <div class="row">
+                        <label for="recipient-name" class="col-form-label" style="font-size: small;">Name<span class="text-danger">*</span></label>
                     </div>
-                    <div class="col-4"><button type="submit" class=" btn buttonbg" style="color: white;">Add</button> </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <input type="text" class="form-control" id="folder-name" formControlName="ex"
+                                placeholder="Enter exercise name" required>
+                        </div>
+                        <div class="col-4">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{SelectType}}<span class="text-danger">*</span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li *ngFor="let mv of movementType"><a class="dropdown-item" (click)="onTypeChanged(mv.Type)" >{{mv.Type}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"><button type="submit" class=" btn buttonbg"
+                                style="color: white;">Add</button> </div>
+                    </div>
                 </div>
+
             </div>
-
-        </div>
-    </form>
+        </form>
 
     </div>
-<div>
-    &nbsp;
-</div>
-<h6>{{this.globalService.Folder}}</h6>
-<div>
-    &nbsp;
-</div>
-<div class="card divwidth" >
-    <ul class="list-group list-group-flush" *ngFor="let x of excerise">
-        
-        <li class="list-group-item">
-            <div class="row">
-        <div class="col">
-            {{x.ex}} 
-        </div>
-        <div class="col">
-            <a (click)="onExerciseNameClicked(x.ex)"><span class="span"><img class="listIcon"src="../../../assets/arrow-right-solid.svg"  alt="goto"></span></a>
-        </div>
+    <div>
+        &nbsp;
     </div>
-</li>
-    
-  <!-- <li class="list-group-item">{{x.foldername}} <span class="span"><img class="listIcon"src="../../../assets/arrow-right-solid.svg"  alt="goto"></span></li> -->
-</ul>
-  </div>
+    <h6>{{this.globalService.Folder}}</h6>
+    <div>
+        &nbsp;
+    </div>
+    <div class="card divwidth">
+        <ul class="list-group list-group-flush" *ngFor="let x of excerise">
+
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col">
+                        {{x.ex}}
+                    </div>
+                    <div class="col">
+                        <a (click)="onExerciseNameClicked(x.ex,x.workoutType)"><span class="span"><img class="listIcon"
+                                    src="../../../assets/arrow-right-solid.svg" alt="goto"></span></a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- <li class="list-group-item">{{x.foldername}} <span class="span"><img class="listIcon"src="../../../assets/arrow-right-solid.svg"  alt="goto"></span></li> -->
+        </ul>
+    </div>
 </div>
