@@ -7,39 +7,47 @@ import { SetTrackerService } from 'src/app/Services/set-tracker.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   folderNameForm: UntypedFormGroup;
- folder:any[]=[]
-  constructor(private fb:UntypedFormBuilder, private service:SetTrackerService,private globalService:GlobalService,private router : Router) { 
-    this.folderNameForm = this.fb.group({  
-      foldername:[''], 
-   });
+  folder: any[] = [];
+  constructor(
+    private fb: UntypedFormBuilder,
+    private service: SetTrackerService,
+    private globalService: GlobalService,
+    private router: Router
+  ) {
+    this.folderNameForm = this.fb.group({
+      foldername: [''],
+    });
   }
 
-  addNotClicked:boolean=true;
+  addNotClicked: boolean = true;
   ngOnInit(): void {
-    this.service.GetFolder().valueChanges().subscribe((res:any)=>{
-      
-if(res.length>0){
-this.folder=res;
-}
-    })
-  }
+    this.service
+      .GetFolder()
+      .valueChanges()
+      .subscribe((res: any) => {
+        if (res.length > 0) {
+          this.folder = res;
+        }
+      });
 
-  onSubmit(){
+
     
-    this.folder.push(this.folderNameForm.value)
   }
 
-addClicked(){
-  this.addNotClicked=!this.addNotClicked
-}
+  onSubmit() {
+    this.folder.push(this.folderNameForm.value);
+  }
 
-onFolderNameClicked(folder:string){
-this.globalService.Folder=folder;
-this.router.navigate(['/exercises']);
-}
+  addClicked() {
+    this.addNotClicked = !this.addNotClicked;
+  }
 
+  onFolderNameClicked(folder: string) {
+    this.globalService.Folder = folder;
+    this.router.navigate(['/exercises']);
+  }
 }

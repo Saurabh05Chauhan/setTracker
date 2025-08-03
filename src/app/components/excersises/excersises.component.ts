@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { RequiredValidator, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { GlobalService } from 'src/app/Services/global.service';
 import { SetTrackerService } from 'src/app/Services/set-tracker.service';
@@ -17,15 +17,16 @@ onDeleteClick(_t38: any) {
 throw new Error('Method not implemented.');
 }
 excerise: any[]=[];
-
-
-
-
+movementType: any[]=[];
+selectedType='';
+SelectType='Select Type'
+error=false;
   addNotClicked: boolean=true;
  exerciseForm:UntypedFormGroup;
   constructor(private fb:UntypedFormBuilder,private service:SetTrackerService,public globalService:GlobalService,private router:Router) { 
     this.exerciseForm = this.fb.group({  
-      ex:[''], 
+      ex:['',new RequiredValidator], 
+      workoutType:['',new RequiredValidator]
    });
   }
 
@@ -35,18 +36,36 @@ this.service.GetExercise().valueChanges().subscribe((res:any)=>{
     
     this.excerise=res;
   }
+
+  // this.service.getMovementType().valueChanges().subscribe((res)=>{
+  //   if(res.length>0){
+  //     this.movementType=res;
+  //   }
+  // })
 })
   }
   addClicked(){
     this.addNotClicked=!this.addNotClicked
   }
 
-  onSubmit(){
-    this.excerise.push(this.exerciseForm.value)
+  onTypeChanged(type:string){
+    this.SelectType=type;
+    this.selectedType=type;
+    this.exerciseForm.get('workoutType')?.patchValue(this.selectedType);
   }
 
-  onExerciseNameClicked(exName: string) {
+  onSubmit(){
+    if(this.exerciseForm.get('workoutType')?.value!='' && this.exerciseForm.get('ex')?.value!=''){
+      this.excerise.push(this.exerciseForm.value)
+    }
+    else{
+      this.error=true;
+    }
+  }
+
+  onExerciseNameClicked(exName: string,workoutType:string) {
     this.globalService.Exercise=exName;
-this.router.navigate(['/analysis']);
+    this.globalService.WorkoutType=workoutType;
+    this.router.navigate(['/analysis']);
     }
 }

@@ -20,4 +20,11 @@ export class GlobalService {
   set Exercise(exercise:string){
      localStorage.setItem('exercise',exercise.toString())
   }
+
+  get WorkoutType():any{
+    return  localStorage.getItem('workoutType');
+  }
+  set WorkoutType(workoutType:string){
+     localStorage.setItem('workoutType',workoutType.toString())
+  }
 }

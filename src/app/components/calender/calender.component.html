@@ -1,0 +1,87 @@
+<!-- Full screen modal -->
+<!-- <div class="modal-dialog modal-fullscreen-sm-down" id="calenderModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="calenderModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+  </div> -->
+
+
+<div class="modal fade" id="calenderModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+  aria-labelledby="calenderModal" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">History</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+        <div *ngIf="!isLoaded">
+          <div class="text-center">
+            <i class="fas fa-spin fa-spinner fa-5x"></i> <br />
+            Loading events...
+          </div>
+        </div>
+        <div *ngIf="isLoaded">
+        <div class="row">
+          <div class="col">
+            <div class="btn-group">
+              <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()">
+                Previous
+              </div>
+              <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                Today
+              </div>
+              <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()">
+                Next
+              </div>
+            </div>
+          </div>
+          <div class="col" style="text-align: end;">
+            <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+          </div>
+        </div>
+
+        <div style="height: 500px; overflow-y: scroll;">
+            <div *ngIf="showEventCard" class="p-3 bg-light border rounded mb-3">
+              <div class="card p-2 shadow">
+                <!-- <h5 class="mb-2">{{ selectedDate | date: 'fullDate' }}</h5> -->
+                <div class="row">
+                  <div class="col">
+                    <div class="mb-2">
+                  <strong>You performed {{ selectedDayEvents.exercise }}</strong><br>
+                  <small>{{selectedDayEvents.Reps}} reps with {{selectedDayEvents.Weight}} KG</small><br>
+                  <small>{{selectedDayEvents.date}}</small><br>
+                  
+                </div>
+                  </div>
+                  <div class="col text-end">
+                    <button type="button" class="btn-close" (click)="closeClicked()" aria-label="Close"></button>
+                  </div>
+                </div>
+                
+              </div>
+            </div> 
+
+            <mwl-calendar-month-view [viewDate]="viewDate" [events]="events" [activeDayIsOpen]="activeDayIsOpen"
+              (dayClicked)="dayClicked($event.day)" (eventClicked)="eventClicked($event.event)">
+            </mwl-calendar-month-view>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

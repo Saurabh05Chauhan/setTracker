@@ -1,0 +1,6 @@
+# netlify.toml
+  [build]
+    command = "npm run build"
+    publish = "dist/set-tracker-app"
+  [build.environment]
+    OPENAI_API_KEY = "placeholder"  # Optional if you're using Netlify dashboard for actual value

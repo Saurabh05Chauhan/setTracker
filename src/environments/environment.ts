@@ -12,7 +12,8 @@ export const environment = {
   messagingSenderId: "454014096624",
   appId: "1:454014096624:web:a862a55f29a3cd67b7de35",
   measurementId: "G-EZZ7XF9RW9"
-  }
+  },
+  OPENAI_API_KEY: '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'
 };
 
 /*

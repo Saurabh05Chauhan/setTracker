@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-
+/* angular-cli file: src/styles.css */
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 .buttonbg{
     background: #642B73;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
