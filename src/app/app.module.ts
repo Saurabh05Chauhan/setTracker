@@ -18,6 +18,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OpenaiAnalysisComponent } from './components/openai-analysis/openai-analysis.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { OpenaiAnalysisComponent } from './components/openai-analysis/openai-ana
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+    NgbModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

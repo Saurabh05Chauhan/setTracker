@@ -3,17 +3,13 @@
         <div class="col-8">
             <H5>Folders</H5>
         </div>
-        <div *ngIf="addNotClicked" class="col"><a class="add" data-bs-toggle="collapse" href="#collapseExample"
-                role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
-                <img  class="addCloseImage"src="../../assets/plus.png">
-            </a></div>
-        <div *ngIf="!addNotClicked" class="col"><a class="add" data-bs-toggle="collapse" href="#collapseExample"
-                role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
-                <img class="addCloseImage" src="../../../assets/remove.png">
+        <div class="col"><a class="add" role="button" (click)="addClicked()">
+                <img class="addCloseImage" src={{imgSrc}}>
             </a></div>
     </div>
-    <form [formGroup]="folderNameForm" (ngSubmit)="onSubmit()" >
-    <div class="collapse divwidth" id="collapseExample">
+    
+    <div class="collapse" id="collapseExample" [ngbCollapse]="addNotClicked">
+        <form [formGroup]="folderNameForm" (ngSubmit)="onSubmit()"  >
         <div class="card card-body">
             <div class="mb-3">
                 <div class="row">
@@ -29,13 +25,13 @@
             </div>
 
         </div>
-
+        </form>
     </div>
-    </form>
+    
 <div>
     &nbsp;
 </div>
-<div class="card divwidth" >
+<div class="card" >
     <ul class="list-group list-group-flush" *ngFor="let x of folder">
         
             <li class="list-group-item">

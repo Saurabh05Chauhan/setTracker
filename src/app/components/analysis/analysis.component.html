@@ -3,16 +3,12 @@
         <div class="col-8">
             <H5>Add Record for {{this.globalService.Exercise}}</H5>
         </div>
-        <div *ngIf="addNotClicked" class="col"><a class="add" data-bs-toggle="collapse"  data-bs-target="#collapseExample"
-                role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
-                <img class="addCloseImage" src="../../assets/plus.png">
+        <div class="col"><a class="add"
+                role="button" (click)="addClicked()">
+                <img class="addCloseImage" src={{imgSrc}}>
             </a></div>
-        <div *ngIf="!addNotClicked" class="col"><a class="add" data-bs-toggle="collapse"  data-bs-target="#collapseExample"
-                role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
-                <img class="addCloseImage" src="../../../assets/remove.png">
-            </a></div> 
     </div>
-    <div class="collapse divwidth" id="collapseExample">
+    <div [ngbCollapse]="addNotClicked">
         <div class="card card-body">
             <form [formGroup]="RecordForm" (ngSubmit)="onSubmit()">
 
@@ -52,13 +48,11 @@
     <div class="accordion divwidth" id="accordionPanelsStayOpenExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapseOne">
+                <button class="accordion-button" type="button" (click)="collapseOne = !collapseOne" [attr.aria-expanded]="!collapseOne" aria-controls="collapseOne">
                     Today
                 </button>
             </h2>
-            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" [ngbCollapse]="collapseOne">
                 <div class="accordion-body">
                     <div class="card" style="margin-left: -7px;overflow-x: overlay;
                     height: 200px;" *ngIf="Todaydata.length>0">
@@ -95,12 +89,12 @@
         </div>
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="accordion-button collapsed" type="button" (click)="collapseTwo = !collapseTwo"
+                     [attr.aria-expanded]="!collapseTwo" aria-controls="collapseTwo">
                     Earlier
                 </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample" [ngbCollapse]="collapseTwo">
                 <div class="accordion-body">
                     <div class="card" style="margin-left: -7px;overflow-x: overlay;
                     height: 200px;" *ngIf="EarlierData.length>0">

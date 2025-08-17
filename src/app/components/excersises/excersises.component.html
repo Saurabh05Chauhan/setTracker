@@ -3,16 +3,12 @@
         <div class="col-8">
             <H5>Add exercise for {{this.globalService.Folder}}</H5>
         </div>
-        <div *ngIf="addNotClicked" class="col"><a class="add" data-bs-toggle="collapse" href="#collapseExample"
-                role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
-                <img class="addCloseImage" src="../../assets/plus.png">
-            </a></div>
-        <div *ngIf="!addNotClicked" class="col"><a class="add" data-bs-toggle="collapse" href="#collapseExample"
-                role="button" aria-expanded="false" aria-controls="collapseExample" (click)="addClicked()">
-                <img class="addCloseImage" src="../../../assets/remove.png">
+        <div class="col"><a class="add"
+                role="button" (click)="addClicked()">
+                <img class="addCloseImage" src={{imgSrc}}>
             </a></div>
     </div>
-    <div class="collapse divwidth" id="collapseExample">
+    <div [ngbCollapse]="addNotClicked">
         <form [formGroup]="exerciseForm" (ngSubmit)="onSubmit()">
             <div class="text-danger mt-1" *ngIf="error">Please enter correct data.</div>
             <div class="card card-body">
@@ -21,11 +17,11 @@
                         <label for="recipient-name" class="col-form-label" style="font-size: small;">Name<span class="text-danger">*</span></label>
                     </div>
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-sm-8">
                             <input type="text" class="form-control" id="folder-name" formControlName="ex"
                                 placeholder="Enter exercise name" required>
                         </div>
-                        <div class="col-4">
+                        <div class="col-sm-4 mt-3 mt-sm-0">
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,7 +33,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="mt-3 row">
                         <div class="col-4"><button type="submit" class=" btn buttonbg"
                                 style="color: white;">Add</button> </div>
                     </div>
@@ -54,7 +50,7 @@
     <div>
         &nbsp;
     </div>
-    <div class="card divwidth">
+    <div class="card">
         <ul class="list-group list-group-flush" *ngFor="let x of excerise">
 
             <li class="list-group-item">

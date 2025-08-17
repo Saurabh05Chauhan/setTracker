@@ -21,6 +21,7 @@ movementType: any[]=[];
 selectedType='';
 SelectType='Select Type'
 error=false;
+imgSrc='../../assets/plus.png';
   addNotClicked: boolean=true;
  exerciseForm:UntypedFormGroup;
   constructor(private fb:UntypedFormBuilder,private service:SetTrackerService,public globalService:GlobalService,private router:Router) { 
@@ -37,15 +38,23 @@ this.service.GetExercise().valueChanges().subscribe((res:any)=>{
     this.excerise=res;
   }
 
-  // this.service.getMovementType().valueChanges().subscribe((res)=>{
-  //   if(res.length>0){
-  //     this.movementType=res;
-  //   }
-  // })
+  this.service.getMovementType().valueChanges().subscribe((res)=>{
+    if(res.length>0){
+      this.movementType=res;
+    }
+  })
 })
   }
   addClicked(){
+
     this.addNotClicked=!this.addNotClicked
+    if(this.addNotClicked){
+      this.imgSrc='../../assets/plus.png';
+    }
+    else{
+      this.imgSrc="../../../assets/remove.png";
+    }
+    
   }
 
   onTypeChanged(type:string){

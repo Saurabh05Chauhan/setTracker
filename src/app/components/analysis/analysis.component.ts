@@ -21,6 +21,9 @@ export class AnalysisComponent implements OnInit {
   recordData: any;
   Todaydata: any[] = [];
   EarlierData: any[] = [];
+  imgSrc='../../assets/plus.png';
+  collapseTwo=true;
+  collapseOne=false;
   constructor(
     private fb: UntypedFormBuilder,
     public globalService: GlobalService,
@@ -96,6 +99,12 @@ export class AnalysisComponent implements OnInit {
 
   addClicked() {
     this.addNotClicked = !this.addNotClicked;
+    if(this.addNotClicked){
+      this.imgSrc='../../assets/plus.png';
+    }
+    else{
+      this.imgSrc="../../../assets/remove.png";
+    }
   }
 
   onSubmit() {

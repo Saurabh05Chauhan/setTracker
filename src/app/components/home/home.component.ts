@@ -12,6 +12,7 @@ import { SetTrackerService } from 'src/app/Services/set-tracker.service';
 export class HomeComponent implements OnInit {
   folderNameForm: UntypedFormGroup;
   folder: any[] = [];
+  imgSrc="../../assets/plus.png";
   constructor(
     private fb: UntypedFormBuilder,
     private service: SetTrackerService,
@@ -44,6 +45,12 @@ export class HomeComponent implements OnInit {
 
   addClicked() {
     this.addNotClicked = !this.addNotClicked;
+    if(this.addNotClicked){
+      this.imgSrc='../../assets/plus.png';
+    }
+    else{
+      this.imgSrc="../../../assets/remove.png";
+    }
   }
 
   onFolderNameClicked(folder: string) {
