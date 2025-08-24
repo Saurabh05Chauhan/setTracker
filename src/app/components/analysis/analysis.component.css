@@ -1,0 +1,52 @@
+div{
+    color: whitesmoke;
+}
+
+
+.glass-card {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.6); /* transparent dark */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-item {
+  background: transparent; /* let parent’s blur show through */
+  border: none;
+}
+
+.accordion-button {
+  background: transparent !important;
+  color: white;
+  font-weight: 500;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-body {
+  color: white;
+}
+
+.active-item {
+  border: 2px solid purple;
+  border-radius: 8px;
+}
+
+.accordion-button:not(.collapsed) {
+  border: 2px solid #a020f0; /* purple border */
+  border-radius: 10px;
+  background-color: rgba(160, 32, 240, 0.05); /* slight purple tint */
+  color: white; /* make text white */
+  box-shadow: 0 0 8px #a020f0, 0 0 16px #a020f0, 0 0 24px #a020f0;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.accordion-button::after,
+.btn-close
+{
+  filter: invert(1) brightness(2); /* Makes default dark icon white */
+}
+
+

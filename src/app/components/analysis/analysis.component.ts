@@ -21,7 +21,7 @@ export class AnalysisComponent implements OnInit {
   recordData: any;
   Todaydata: any[] = [];
   EarlierData: any[] = [];
-  imgSrc='../../assets/plus.png';
+  imgSrc='../../assets/plus_btn.png';
   collapseTwo=true;
   collapseOne=false;
   constructor(
@@ -78,7 +78,18 @@ export class AnalysisComponent implements OnInit {
         this.Todaydata.sort(sortByProperty('time', 'desc'));
       } else {
         this.EarlierData.push(element);
-        this.EarlierData.sort(sortByProperty('date', 'desc'));
+
+      // Sort earlier data by date (desc), then time (desc)
+      this.EarlierData.sort((a: any, b: any) => {
+        if (a.date < b.date) return 1;
+        if (a.date > b.date) return -1;
+
+        // If date is same → compare by time (asc)
+        if (a.time < b.time) return -1;
+        if (a.time > b.time) return 1;
+
+        return 0;
+      });
       }
     });
   }
@@ -100,10 +111,10 @@ export class AnalysisComponent implements OnInit {
   addClicked() {
     this.addNotClicked = !this.addNotClicked;
     if(this.addNotClicked){
-      this.imgSrc='../../assets/plus.png';
+      this.imgSrc='../../assets/plus_btn.png';
     }
     else{
-      this.imgSrc="../../../assets/remove.png";
+      this.imgSrc="../../../assets/remove_btn.png";
     }
   }
 

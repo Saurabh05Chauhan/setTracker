@@ -2,10 +2,7 @@
 /* angular-cli file: src/styles.css */
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 .buttonbg{
-    background: #642B73;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background-color:  #B13BFF;;
 }
 
 .addCloseImage{
@@ -58,4 +55,137 @@ background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, F
     width: 69%;
   }
 }
+
+.card {
+     background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    /* border: 1px solid rgba(220, 14, 14, 0.679) !important; */
+}
+
+.glass {
+     background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    border: 1px solid rgba(218, 44, 241, 0.679) !important;
+    /* border: 1px solid rgba(220, 14, 14, 0.679) !important; */
+}
+
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1); /* Transparent white */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px); /* The blur effect */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.glass-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: white; /* Text visible on dark backgrounds */
+}
+
+.glass-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transition: 0.3s ease;
+}
+
+img.invert {
+  filter: invert(100%);
+}
+.add {
+  display: inline-block;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.add:hover {
+  border: 2px solid #a020f0; /* purple border */
+  box-shadow: none; /* ensure no box shadow */
+  filter: drop-shadow(0 0 3px #a020f0)
+          drop-shadow(0 0 6px #a020f0);
+}
+
+/* image glow (subtle) */
+.add:hover .addCloseImage {
+  filter: drop-shadow(0 0 3px #a020f0)
+          drop-shadow(0 0 6px #a020f0);
+}
+
+
+/* For input fields */
+.form-control {
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-control:hover,
+.form-control:focus {
+  border: 2px solid #a020f0; /* purple border */
+  box-shadow: 0 0 6px #a020f0, 0 0 12px #a020f0, 0 0 18px #a020f0;
+  outline: none;
+}
+
+/* For the Add button */
+.buttonbg {
+  background-color: #6a0dad; /* purple bg */
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.buttonbg:hover {
+  border: 2px solid #a020f0;
+  box-shadow: 0 0 8px #a020f0, 0 0 16px #a020f0, 0 0 24px #a020f0;
+}
+
+
+/* Month view container */
+.cal-month-view {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+/* Day cells */
+.cal-month-view .cal-day-cell {
+  background-color: #1e1e1e !important;
+  border-color: #333 !important;
+  color: #ccc !important;
+}
+
+/* Today cell */
+.cal-month-view .cal-day-cell.cal-today {
+  background-color: #2b2b2b !important;
+  color: #fff !important;
+  border: 1px solid #555 !important;
+}
+
+/* Weekend cells */
+.cal-month-view .cal-day-cell.cal-weekend {
+  background-color: #222 !important;
+  color: #aaa !important;
+}
+
+/* Header (Mon, Tue, etc.) */
+.cal-month-view .cal-header {
+  background-color: #2a2a2a !important;
+  color: #e0e0e0 !important;
+}
+
+/* Event styling */
+
+
+
+
+
 

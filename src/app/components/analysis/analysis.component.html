@@ -3,7 +3,7 @@
         <div class="col-8">
             <H5>Add Record for {{this.globalService.Exercise}}</H5>
         </div>
-        <div class="col"><a class="add"
+        <div class="col text-end"><a class="add"
                 role="button" (click)="addClicked()">
                 <img class="addCloseImage" src={{imgSrc}}>
             </a></div>
@@ -45,10 +45,10 @@
         &nbsp;
     </div>
     <h6>{{this.globalService.Exercise}}</h6>
-    <div class="accordion divwidth" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
+    <div class="accordion glass-card" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item glass-item">
             <h2 class="accordion-header">
-                <button class="accordion-button" type="button" (click)="collapseOne = !collapseOne" [attr.aria-expanded]="!collapseOne" aria-controls="collapseOne">
+                <button class="accordion-button" type="button" (click)="collapseOne = !collapseOne" [attr.aria-expanded]="!collapseOne"  [class.collapsed]="collapseOne" aria-controls="collapseOne">
                     Today
                 </button>
             </h2>
@@ -59,7 +59,7 @@
                         <ul class="list-group list-group-flush" *ngFor="let x of Todaydata">
                             <!--  -->
 
-                            <li class="list-group-item">
+                            <li class="list-group-item glass-item">
                                 <div class="row">
                                     <div class="col">
                                         {{x.time}}
@@ -71,7 +71,7 @@
                                         <span style="color: greenyellow;">{{x.Reps}} rep</span>
                                     </div>
                                     <div class="col">
-                                        <span><a data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEditClick(x)"><img class="listIcon" src="../../../assets/pen.png"></a> |<a> <img
+                                        <span><a data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEditClick(x)"><img class="listIcon" src="../../../assets/edit_btn.png"></a> |<a> <img
                                            (click)="onDeleteClick(x)"     class="listIcon" src="../../../assets/delete.png"></a></span>
                                     </div>
                                 </div>
@@ -87,10 +87,10 @@
                 </div>
             </div>
         </div>
-        <div class="accordion-item">
+        <div class="accordion-item glass-item">
             <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" (click)="collapseTwo = !collapseTwo"
-                     [attr.aria-expanded]="!collapseTwo" aria-controls="collapseTwo">
+                     [attr.aria-expanded]="!collapseTwo" [class.collapsed]="collapseTwo" aria-controls="collapseTwo">
                     Earlier
                 </button>
             </h2>
@@ -101,7 +101,7 @@
                         <ul class="list-group list-group-flush" *ngFor="let x of EarlierData">
                             <!-- *ngFor="let x of Todaydata" -->
 
-                            <li class="list-group-item">
+                            <li class="list-group-item glass-item">
                                 <div class="row">
                                     <div class="col">
                                         {{x.date}}
@@ -113,7 +113,7 @@
                                         <span style="color: greenyellow;">{{x.Reps}} rep</span>
                                     </div>
                                     <div class="col">
-                                        <span><a data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEditClick(x)"><img class="listIcon" src="../../../assets/pen.png"></a> | <a (click)="onDeleteClick(x)"><img
+                                        <span><a data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEditClick(x)"><img class="listIcon" src="../../../assets/edit_btn.png"></a> | <a (click)="onDeleteClick(x)"><img
                                                 class="listIcon" src="../../../assets/delete.png"></a></span>
                                     </div>
                                 </div>
@@ -134,12 +134,12 @@
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content glass-card">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">Edit now</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onCloseClick()"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body glass-item">
             <form [formGroup]="RecordForm" (ngSubmit)="onEditSubmit()">
                 <input type="text" class="form-control" id="time" formControlName="time" hidden="true" >
                 <input type="text" class="form-control" id="date" formControlName="date" hidden="true" >

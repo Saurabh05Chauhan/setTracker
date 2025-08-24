@@ -21,7 +21,7 @@ movementType: any[]=[];
 selectedType='';
 SelectType='Select Type'
 error=false;
-imgSrc='../../assets/plus.png';
+imgSrc='../../assets/plus_btn.png';
   addNotClicked: boolean=true;
  exerciseForm:UntypedFormGroup;
   constructor(private fb:UntypedFormBuilder,private service:SetTrackerService,public globalService:GlobalService,private router:Router) { 
@@ -49,10 +49,10 @@ this.service.GetExercise().valueChanges().subscribe((res:any)=>{
 
     this.addNotClicked=!this.addNotClicked
     if(this.addNotClicked){
-      this.imgSrc='../../assets/plus.png';
+      this.imgSrc='../../assets/plus_btn.png';
     }
     else{
-      this.imgSrc="../../../assets/remove.png";
+      this.imgSrc="../../../assets/remove_btn.png";
     }
     
   }

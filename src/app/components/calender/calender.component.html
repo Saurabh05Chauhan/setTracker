@@ -21,12 +21,12 @@
 <div class="modal fade" id="calenderModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
   aria-labelledby="calenderModal" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
+    <div class="modal-content glass-card">
+      <div class="modal-header glass-item">
         <h1 class="modal-title fs-5" id="exampleModalLabel">History</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" >
+      <div class="modal-body glass-item" >
         <div *ngIf="!isLoaded">
           <div class="text-center">
             <i class="fas fa-spin fa-spinner fa-5x"></i> <br />
@@ -57,7 +57,7 @@
 
         <div style="height: 500px; overflow-y: scroll;">
             <div *ngIf="showEventCard" class="p-3 bg-light border rounded mb-3">
-              <div class="card p-2 shadow">
+              <div class="card p-2 shadow glass-card">
                 <!-- <h5 class="mb-2">{{ selectedDate | date: 'fullDate' }}</h5> -->
                 <div class="row">
                   <div class="col">

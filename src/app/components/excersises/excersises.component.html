@@ -3,7 +3,7 @@
         <div class="col-8">
             <H5>Add exercise for {{this.globalService.Folder}}</H5>
         </div>
-        <div class="col"><a class="add"
+        <div class="col text-end"><a class="add"
                 role="button" (click)="addClicked()">
                 <img class="addCloseImage" src={{imgSrc}}>
             </a></div>
@@ -50,16 +50,16 @@
     <div>
         &nbsp;
     </div>
-    <div class="card">
+    <div class="card glass-card">
         <ul class="list-group list-group-flush" *ngFor="let x of excerise">
 
-            <li class="list-group-item">
+            <li class="list-group-item glass-item">
                 <div class="row">
                     <div class="col">
                         {{x.ex}}
                     </div>
                     <div class="col">
-                        <a (click)="onExerciseNameClicked(x.ex,x.workoutType)"><span class="span"><img class="listIcon"
+                        <a (click)="onExerciseNameClicked(x.ex,x.workoutType)"><span class="span"><img class="listIcon invert"
                                     src="../../../assets/arrow-right-solid.svg" alt="goto"></span></a>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit,ChangeDetectionStrategy } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, OnInit,ChangeDetectionStrategy, Inject } from '@angular/core';
 import {
   CalendarEvent,
   CalendarEventAction,
@@ -15,7 +16,7 @@ import { SetTrackerService } from 'src/app/Services/set-tracker.service';
   styleUrls: ['./calender.component.css']
 })
 export class CalenderComponent implements OnInit {
-  constructor(private sTservice:SetTrackerService) { }
+  constructor(private sTservice:SetTrackerService,@Inject(DOCUMENT) private document:any) { }
   viewDate: Date = new Date();
   //events: CalendarEvent[] = [];
   refresh: Subject<void> = new Subject();
@@ -29,6 +30,7 @@ export class CalenderComponent implements OnInit {
   selectedDate: Date | null = null;
   selectedDayEvents:any;
   showEventCard=false;
+  private readonly darkThemeClass = 'dark-theme';
   //events$: Observable<CalendarEvent[]> | undefined;
   COLOR_CODES: {
   LEGS: '#28a745';
@@ -42,7 +44,7 @@ export class CalenderComponent implements OnInit {
   Default: '#fff5d6'
 };
   ngOnInit(): void {
-
+    this.document.body.classList.add(this.darkThemeClass);
     this.getData();
 
     // this.recordData.forEach(element => {
