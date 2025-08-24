@@ -117,6 +117,15 @@ export class SetTrackerService {
       .catch((err) => {
         alert(err.message);
       });
+
+    this.afs.collection('AllExerciseCombineData', ref => ref.where('id', '==', data.id))
+    .get()
+    .subscribe(snapshot => {
+      snapshot.forEach(doc => {
+        this.afs.collection('AllExerciseCombineData').doc(doc.id).delete()
+          .catch(error => alert(error.message));
+      });
+    });
   }
 
   GetExerciseData(): AngularFirestoreCollection<any> {

@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+
 import { Component, OnInit,ChangeDetectionStrategy, Inject } from '@angular/core';
 import {
   CalendarEvent,
@@ -16,7 +16,7 @@ import { SetTrackerService } from 'src/app/Services/set-tracker.service';
   styleUrls: ['./calender.component.css']
 })
 export class CalenderComponent implements OnInit {
-  constructor(private sTservice:SetTrackerService,@Inject(DOCUMENT) private document:any) { }
+  constructor(private sTservice:SetTrackerService) { }
   viewDate: Date = new Date();
   //events: CalendarEvent[] = [];
   refresh: Subject<void> = new Subject();
@@ -44,7 +44,6 @@ export class CalenderComponent implements OnInit {
   Default: '#fff5d6'
 };
   ngOnInit(): void {
-    this.document.body.classList.add(this.darkThemeClass);
     this.getData();
 
     // this.recordData.forEach(element => {
@@ -58,7 +57,7 @@ export class CalenderComponent implements OnInit {
     this.sTservice.getAllData().valueChanges().subscribe((res:any)=>{
       if(res.length>0){
         this.recordData=res;
-        console.log(this.recordData);
+        //console.log(this.recordData);
         this.recordData.forEach((element:any) => {
           const combinedDate = this.getValidDate(element.date, element.time);
           const normalizedStart = combinedDate ? this.normalizeToMidnight(combinedDate) : null;
