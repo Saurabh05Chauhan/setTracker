@@ -75,7 +75,13 @@ export class AnalysisComponent implements OnInit {
     this.recordData.forEach((element: any) => {
       if (element.date == currentDateTime) {
         this.Todaydata.push(element);
-        this.Todaydata.sort(sortByProperty('time', 'desc'));
+
+      // Sort today's data by time (ascending)
+      this.Todaydata.sort((a: any, b: any) => {
+        if (a.time < b.time) return -1;
+        if (a.time > b.time) return 1;
+        return 0;
+      });
       } else {
         this.EarlierData.push(element);
 
